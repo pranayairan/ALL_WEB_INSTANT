@@ -1,0 +1,326 @@
+<!DOCTYPE html> <!-- The new doctype -->
+<html>
+    <head>
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>Google Image Instant, Search Google Images Instantly</title>
+        
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        
+         <link href="toolbarstyle.css" rel="stylesheet" type="text/css" />
+
+
+        
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<script type="text/javascript">
+//var worker = new Worker('script.js');
+
+$(document).ready(function()
+{
+$(".search_input").text='';
+$(".search_input").focus();
+$(".search_input").keyup(function() 
+{
+
+var search_input = $(this).val();
+var keyword= encodeURIComponent(search_input);
+
+
+//var yt_url='http://pipes.yahoo.com/pipes/pipe.run?KeyWords='+keyword+'&_id=EB0sT6mm3RGvD_vf1JzWFw&_render=json&jsoncallback=?'; 
+
+
+$.getJSON("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q="+keyword+"&rsz=8&key=ABQIAAAAN4kzJ2K8zjFjM_-NG_UE-BT-kggiwGJxaszALFUWfKoK-N6jcRQ3eT6oSgzE-n8NclldM7QsOHf_mA&callback=?",
+        function(data){
+        $('#images').empty();
+        var length = 42;
+          $.each(data.responseData.results, function(i,item){
+          
+          //var worker = new Worker('script.js');
+          //worker.postMessage(item.media.m); 
+         
+
+        var url =  '<div class="cl_box_gbooks"><a href="' + item.unescapedUrl +'"><img width="'+item.tbWidth+'" height="'+item.tbHeight+'" style="margin-left:25px" src="'+item.tbUrl+'" /></a><div style="font-size:small" align="center"><strong><a href="'+item.unescapedUrl+'">'+(item.title).substring(0,length)+'</a></strong></div></div>';
+
+                    
+          //$('<img style="padding:5px 5px 5px 5px" />').attr("src", item.media.m).appendTo("#images");
+			$(url).appendTo("#images");
+
+
+          });});
+
+          
+$.getJSON("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q="+keyword+"&rsz=8&start=7&key=ABQIAAAAN4kzJ2K8zjFjM_-NG_UE-BT-kggiwGJxaszALFUWfKoK-N6jcRQ3eT6oSgzE-n8NclldM7QsOHf_mA&callback=?",
+        function(data1){
+       
+          $.each(data1.responseData.results, function(i,item1){
+          
+          //var worker = new Worker('script.js');
+          //worker.postMessage(item.media.m); 
+          
+         
+
+        var url1 =  '<div class="cl_box_gbooks"><a href="' + item1.unescapedUrl +'"><img width="'+item1.tbWidth+'" height="'+item1.tbHeight+'" style="margin-left:25px" src="'+ item1.tbUrl+'" /></a><div style="font-size:small" align="center"><strong><a href="'+item1.unescapedUrl+'">'+(item1.title).substring(0,length)+'</a></strong></div></div>'
+          
+          //$('<img style="padding:5px 5px 5px 5px" />').attr("src", item.media.m).appendTo("#images");
+			$(url1).appendTo("#images");
+
+
+          });
+          
+              
+          
+        });
+        
+           
+//json function ends here   
+});
+});
+
+</script>
+
+        
+        <!-- Internet Explorer HTML5 enabling code: -->
+        
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        
+        <style type="text/css">
+        .clear {
+          zoom: 1;
+          display: block;
+        }
+        .style1 {
+			text-align: left;
+		}
+        </style>
+
+        
+        <![endif]-->
+        <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20191626-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </head>
+    
+    <body onload="document.getElementById('se').value=''">
+    	
+    	
+    	 <!-- Tool bar code starts here -->   	
+    	
+   
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+  //hide toolbar and make visible the 'show' button
+	$("span.downarr a").click(function() {
+    $("#toolbar").slideToggle("fast");
+    $("#toolbarbut").fadeIn("slow");    
+  });
+  
+  //show toolbar and hide the 'show' button
+  $("span.showbar a").click(function() {
+    $("#toolbar").slideToggle("slow");
+    $("#toolbarbut").fadeOut();    
+  });
+  
+  //show tooltip when the mouse is moved over a list element 
+  $("ul#social li").hover(function() {
+		$(this).find("div").fadeIn("fast").show(); //add 'show()'' for IE
+    $(this).mouseleave(function () { //hide tooltip when the mouse moves off of the element
+        $(this).find("div").hide("slow");
+    });
+  });
+  
+  //don't jump to #id link anchor 
+  $(".stumble, .menutit, span.downarr a, span.showbar a").click(function() {
+   return false;                                         
+	});
+	
+  //show quick menu on click 
+	$("span.menu_title a").click(function() {
+		if($(".quickmenu").is(':hidden')){ //if quick menu isn't visible 
+			$(".quickmenu").fadeIn("slow"); //show menu on click
+		}
+		else if ($(".quickmenu").is(':visible')) { //if quick menu is visible 
+      $(".quickmenu").fadeOut("fast"); //hide menu on click
+    }
+	});
+	
+	//hide menu on casual click on the page
+	$(document).click(function() {
+			$(".quickmenu").fadeOut("slow");
+			$(".quickmenu").css({'vivibility': 'hidden'});
+	});
+	$('.quickmenu').click(function(event) { 
+		event.stopPropagation(); //use .stopPropagation() method to avoid the closing of quick menu panel clicking on its elements 
+	});
+
+		
+});
+	
+</script>
+
+<div id="toolbarbut"> <!-- hide button -->
+<span class="showbar"><a href="#">show bar</a></span>
+</div>
+
+<div id="toolbar"> <!-- toolbar container -->
+
+<div class="leftside"> <!-- all things in floating left side -->
+  <ul id="social" style="width: 449px">
+    <li><a class="rss" href="index.html"></a><!-- icon -->
+      
+    </li>
+    <li><a class="facebook" href="twitter.html"></a>
+     
+    </li>
+    <li><a class="twitter" href="itunes.html"></a>
+      
+    </li>
+    <li><a class="delicious" href="flickr.html"></a>
+     
+    </li>
+    <li><a class="digg" href="ebay.html"></a>
+     
+    </li>
+    <li><a class="stumble" href="#"></a>
+      <div id="tipstumble" class="tip">
+        <ul>
+          <li><a href="googlebooks.html">Books</a></li>
+          <li><a href="googleimage.html">| Images</a></li>
+        </ul>  
+      </div>
+    </li>
+    
+     <li><a class="yahoo" href="answers.html"></a>
+      
+    </li>
+    
+  </ul>
+</div>
+
+<div class="rightside"> <!-- all things in floating left side -->
+  <span class="downarr"> <!-- hide button -->
+  <a href="#"></a>
+  </span>
+  <span class="menu_title">
+    <a class="menutit" href="#">More</a> <!-- quick menu title -->
+  </span>
+  <div class="quickmenu">
+    <ul> <!-- quick menu list -->
+      
+      <li><a href="http://allin1gblogs.appspot.com/">AllGoogleWebBlog</a></li>
+      <li><a href="http://www.dexterology.com/">Dexterology</a></li>
+      <li><a href="http://pranayairan.dexterology.com/home.html">My resume</a></li>
+      <li><a href="http://twitter.com/parryiiitb">My Twitter</a></li>
+            <li><a href="http://www.facebook.com/people/Pranay-Airan/684237866">My Facebook</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      
+
+    </ul> 
+  </div>
+</div>
+
+</div>
+
+    	
+    	
+<!-- Tool bar Code ends here -->  	
+
+    	<section id="page"> <!-- Defining the #page section with the section tag -->
+    
+            <header> <!-- Defining the header section of the page with the appropriate tag -->
+            
+                <hgroup>
+                <div align="center">
+                    <img src="img/googleimages.png" height="104" width="757"/>
+                     <div style="padding-top:5px">
+                <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="parryiiitb" data-related="dextrology.:My website account">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                    <span style="font-family:forte,Myriad Pro,Helvetica Neue,Helvetica,Arial,Sans-Serif; font-size:1.7em; font-weight:normal;margin:10px 30px 1em ;">Search Google Images Instantly</span> 
+                                        <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fexample.com%2Fpage%2Fto%2Flike&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border-style: none; border-color: inherit; border-width: medium; overflow:hidden; width:106px; height:21px;" allowTransparency="true"></iframe>
+                    </div>
+                    </div>
+                </hgroup>
+                                
+                
+            
+            </header>
+            
+            <section id="articles"> <!-- A new section with the articles -->
+
+				<!-- Article 1 start -->
+
+                <div class="line"></div>  <!-- Dividing line -->
+                
+                <article id="article1"> <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+<div align="center">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input id="se" type="text" class='search_input' style="width: 488px; height: 40px"  />&nbsp;
+					<a href="http://www.google.co.in/">
+					<img alt="power by google" height="36" src="img/poweredby.png" width="79"></a>
+					<p>Please type in the box for instant Google image Search ex:- 
+					flintstones</p>
+					
+					</div>
+                    
+                    <div class="line"></div>
+                    
+                    <div class="articleBody clear">
+                    
+                    	 <!-- The figure tag marks data (usually an image) that is part of the article -->
+	                    	
+	                    	
+	                   <div id="content">
+
+                      <div class="content_box last" id="images">
+               
+                      </div>
+                      
+                      </div> 	
+
+                        
+                       
+                    </div>
+                </article>
+                
+				<!-- Article 1 end -->
+
+
+			
+
+
+            </section>
+
+        <footer> <!-- Marking the footer section -->
+
+           
+           
+           <div class="style1" style="height: 43px"><strong>Created by:- 
+			   </strong> <a href="http://www.dexterology.com"><strong>Pranay Airan
+			   </strong> </a><strong>Copyright 2010 - Dexterology</strong></div> <!-- Change the copyright notice -->
+           
+           <a href="#" class="up">Go UP</a>
+           <a href="http://tutorialzine.com/2010/02/html5-css3-website-template/" class="by">Template by Tutorialzine</a>
+           
+
+        </footer>
+            
+	
+        
+        <!-- JavaScript Includes -->
+        
+       
+    </body>
+</html>

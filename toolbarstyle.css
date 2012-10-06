@@ -1,0 +1,245 @@
+﻿
+/*-- Bottom Toolbar --*/
+
+div#toolbar, div#toolbarbut {
+  position: fixed; /* set fixed position for the bar */
+  bottom: 0px;
+  right: 0px;
+  z-index: 6999; /* keep the bar on top  */
+  height: 60px;
+  background: url(images/back.jpg);
+  /* CSS3 */
+  -moz-border-radius-topleft: 8px;
+	-khtml-border-radius-topleft: 8px;
+	-webkit-border-top-left-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-khtml-border-radius-topright: 8px;
+	-webkit-border-top-right-radius: 8px;
+	-moz-box-shadow: 0px 1px 10px #666, inset 1px 1px 0px #a4a4a4; /* inset creates a inner-shadow */
+  -khtml-box-shadow: 0px 1px 10px #666;
+  -webkit-box-shadow: 0px 1px 10px #666;
+  /* CSS3 end */
+	border-top: 1px solid #eee;
+  border-left: 1px solid #eee; 
+  border-right: 1px solid #eee;  
+  border-bottom: 1px solid #eee; 
+}
+
+div#toolbar {
+  width: 95%;
+  min-width: 700px; /* to limit the width when an excessive window resize */
+  margin: 0px auto; /* centered toolbar */
+  left: 0px;
+}
+
+div#toolbarbut { /* div for the 'hide status' */
+  width: 70px;
+  height: 25px;
+  margin-right: 3%;
+  display: none;
+}
+
+span.showbar a { /* show button */
+  padding: 5px;  
+  font-size: 15px;
+  color: #989898;
+}
+
+.leftside {
+  float: left;
+}
+
+.rightside {
+padding-top:5px;
+  float: right;
+}
+
+
+/*-- Left Side --*/
+
+ul#social li {
+  display: inline;
+  padding-right:3px;
+}
+
+a.rss {
+
+  display: inline-block;
+  width: 120px;
+  height: 45px;
+  margin-left: 5px;
+  margin-top:4px;
+  margin-right:4px;
+  background: url(images/instant.png) no-repeat;
+}
+
+a.facebook, a.twitter, a.digg, a.delicious, a.stumble,a.yahoo {
+  display: inline-block;
+  width: 40px;
+  height: 40px;        
+  margin-top: 1px;
+}
+
+a.rss:hover, a.facebook:hover, a.twitter:hover, a.digg:hover, a.delicious:hover, a.stumble:hover, a.stumble:yahoo {
+  background-position: 2px 2px; /* simple css hover effect */
+}
+
+a.facebook {
+ background: url(images/twitter.png) no-repeat;
+}
+
+a.twitter {
+  background: url(images/itunes.png) no-repeat;
+}
+
+a.delicious {
+  background: url(images/flickr.png) no-repeat;
+}
+
+a.digg {
+  background: url(images/ebay.png) no-repeat;
+}
+
+a.stumble {
+   background: url(images/google.png) no-repeat;
+}
+
+
+
+a.yahoo {
+  background: url(images/yahoo.png) no-repeat;
+}
+
+
+.tip {
+  position: absolute; /* important */
+  top: -75px;
+  width: 250px;
+  height: 78px;
+  background: url(images/tip.png) no-repeat;
+  float: left;
+  display: none;
+}
+
+/* custom distances for the icons */
+#tipfacebook {
+   left: 95px; 
+
+}
+
+#tiptwitter {
+  left: 150px; 
+}
+
+#tipdelicious {
+  left: 200px; 
+}
+
+#tipdigg {
+  left: 250px; 
+}
+
+#tipstumble {
+  left: 290px; 
+}
+
+#tipyahoo {
+  left: 340px; 
+}
+
+
+.tip ul {
+  padding: 22px 0 0 25px;
+}
+
+.tip ul li {
+  display: inline;
+  padding-left: 3px;
+}
+
+.tip ul li a {
+  font-size: 18px;
+  color: #989898;
+}       
+
+.tip ul li a:hover {
+  color: #666;
+}
+
+.tip ul li small {
+  font-size: 10px;
+}
+
+/*-- Right Side --*/
+
+span.social {
+	
+	padding: 30px 50px;
+}
+
+span.downarr { /* hide button */ 
+  float: right;
+  border-left: 1px solid #a4a4a4;
+}
+
+
+span.downarr a {
+  display: block;
+  width: 36px;
+  height: 26px;
+  padding: 25px 0 0 10px;
+  background: url(images/downarrow.png) no-repeat 5px 7px;
+}
+
+span.menu_title {
+  background: #333333;
+  border-left: 1px solid #a4a4a4;
+  padding: 10px;
+}
+
+span.menu_title a {
+  font-size: 18px;
+  line-height: 34px;
+  color: #9a9a9a;
+}
+
+.quickmenu {
+  position: absolute; /* important */
+  top: -251px;
+  right: 6px;
+  width: 260px;
+  height: 250px;
+	
+   background-image:url(images/menuhover.jpg);background-repeat:repeat;
+   
+   border-top: 1px solid #a4a4a4;
+  border-left: 1px solid #a4a4a4; 
+  border-right: 1px solid #a4a4a4;
+  /* CSS3 */
+  -moz-box-shadow: 2px -3px 5px #c5c5c5, -3px 0px 5px #cdcdcd;
+  -khtml-shadow: 2px -3px 5px #c5c5c5, -3px 0px 5px #cdcdcd;
+  -webkit-box-shadow: 2px -3px 5px #c5c5c5, -3px 0px 5px #cdcdcd;
+  /* CSS3 end */
+  display: none; /* important */
+}
+
+.quickmenu ul {
+  padding-top: 20px;
+}
+
+.quickmenu ul li {
+  border-bottom: 1px solid #989898;    
+  padding: 5px 10px;
+  margin: 0 15px 0 15px;
+
+}
+
+.quickmenu ul li a {
+  font-size: 18px;
+  color: #5F5F47;
+  
+}
+
+.quickmenu ul li a:hover {
+  color: #BFBFBF;
+}

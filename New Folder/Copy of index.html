@@ -1,0 +1,153 @@
+<!DOCTYPE html> <!-- The new doctype -->
+<html>
+    <head>
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>Flicker Instant Search flickr Instantly</title>
+        
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        
+        
+        
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<script type="text/javascript">
+//var worker = new Worker('script.js');
+
+$(document).ready(function()
+{
+$(".search_input").text='';
+$(".search_input").focus();
+$(".search_input").keyup(function() 
+{
+
+var search_input = $(this).val();
+var keyword= encodeURIComponent(search_input);
+
+
+//var yt_url='http://pipes.yahoo.com/pipes/pipe.run?KeyWords='+keyword+'&_id=EB0sT6mm3RGvD_vf1JzWFw&_render=json&jsoncallback=?'; 
+
+
+$.getJSON("http://pipes.yahoo.com/pipes/pipe.run?_id=b84a9c7ba57a483fedb12e0da2c6f901&_render=json&jsoncallback=?",
+        function(data){
+        $('#images').empty();
+          $.each(data.items, function(i,item){
+          
+          //var worker = new Worker('script.js');
+          //worker.postMessage(item.media.m); 
+          
+        var url =  '<div class="cl_box"><div style="font-size:small" align="center"><strong><a href="'+item.link+'">'+item.title+'</a></strong></div></div>'
+
+          
+          //$('<img style="padding:5px 5px 5px 5px" />').attr("src", item.media.m).appendTo("#images");
+			$(url).appendTo("#images");
+
+            if ( i == 7 ) return false;
+          });
+        });
+});
+});
+
+</script>
+
+        
+        <!-- Internet Explorer HTML5 enabling code: -->
+        
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        
+        <style type="text/css">
+        .clear {
+          zoom: 1;
+          display: block;
+        }
+        .style1 {
+			text-align: left;
+		}
+        </style>
+
+        
+        <![endif]-->
+        
+    </head>
+    
+    <body onload="document.getElementById('se').value=''">
+    	
+    	<section id="page"> <!-- Defining the #page section with the section tag -->
+    
+            <header> <!-- Defining the header section of the page with the appropriate tag -->
+            
+                <hgroup>
+                <div align="center">
+                    <img src="img/flicker_instant.png" height="99" width="634"/>
+                    <h3>Search Flickr Instantly</h3>
+                    </div>
+                </hgroup>
+                                
+                
+            
+            </header>
+            
+            <section id="articles"> <!-- A new section with the articles -->
+
+				<!-- Article 1 start -->
+
+                <div class="line"></div>  <!-- Dividing line -->
+                
+                <article id="article1"> <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+<div align="center">
+					<input id="se" type="text" class='search_input' style="width: 489px; height: 40px"  />
+					<p>Please type in the box for instant flickr search ex:- obama</p>
+					
+					</div>
+                    
+                    <div class="line"></div>
+                    
+                    <div class="articleBody clear">
+                    
+                    	 <!-- The figure tag marks data (usually an image) that is part of the article -->
+	                    	
+	                    	
+	                   <div id="content">
+
+                      <div class="content_box last" id="images">
+               
+                      </div>
+                      
+                      </div> 	
+
+                        
+                       
+                    </div>
+                </article>
+                
+				<!-- Article 1 end -->
+
+
+			
+
+
+            </section>
+
+        <footer> <!-- Marking the footer section -->
+
+           
+           
+           <div class="style1" style="height: 43px"><strong>Created by:- 
+			   </strong> <a href="http://www.dexterology.com"><strong>Pranay Airan
+			   </strong> </a><strong>Copyright 2010 - Dexterology</strong></div> <!-- Change the copyright notice -->
+           
+           <a href="#" class="up">Go UP</a>
+           <a href="http://tutorialzine.com/2010/02/html5-css3-website-template/" class="by">Template by Tutorialzine</a>
+           
+
+        </footer>
+            
+	
+        
+        <!-- JavaScript Includes -->
+        
+       
+    </body>
+</html>

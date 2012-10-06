@@ -1,0 +1,162 @@
+<html><head> <!-- The new doctype -->
+
+    
+    
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
+        <title>Flicker Instant Search flickr Instantly</title>
+        
+        <link href="styles.css" type="text/css" rel="stylesheet">
+        
+        
+        
+<script src="jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+//var worker = new Worker('script.js');
+
+$(document).ready(function()
+{
+$(".search_input").text='';
+$(".search_input").focus();
+$(".search_input").keyup(function() 
+{
+
+var search_input = $(this).val();
+var keyword= encodeURIComponent(search_input);
+
+
+//var yt_url='http://pipes.yahoo.com/pipes/pipe.run?KeyWords='+keyword+'&amp;_id=EB0sT6mm3RGvD_vf1JzWFw&amp;_render=json&amp;jsoncallback=?'; 
+
+
+$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?tags="+keyword+"&amp;tagmode=any&amp;format=json&amp;jsoncallback=?",
+        function(data){
+        $('#images').empty();
+          $.each(data.items, function(i,item){
+          
+          //var worker = new Worker('script.js');
+          //worker.postMessage(item.media.m); 
+          
+        var url =  '&lt;div class="cl_box"&gt;&lt;a href="' + item.link +'"&gt;&lt;img width="160" height="160" src="'+item.media.m+'" /&gt;&lt;/a&gt;&lt;div style="font-size:small" align="center"&gt;&lt;strong&gt;&lt;a href="'+item.link+'"&gt;'+item.title+'&lt;/a&gt;&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;'
+
+          
+          //$('&lt;img style="padding:5px 5px 5px 5px" /&gt;').attr("src", item.media.m).appendTo("#images");
+			$(url).appendTo("#images");
+
+            if ( i == 7 ) return false;
+          });
+        });
+});
+});
+
+</script>
+
+        
+        <!-- Internet Explorer HTML5 enabling code: -->
+        
+        <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        
+        <style type="text/css">
+        .clear {
+          zoom: 1;
+          display: block;
+        }
+        .style1 {
+			text-align: left;
+		}
+        </style>
+
+        
+        <![endif]-->
+        
+    </head><body onload="document.getElementById('se').value=''">
+    	
+    	<section id="page"> <!-- Defining the #page section with the section tag -->
+    
+            <header> <!-- Defining the header section of the page with the appropriate tag -->
+            
+                <hgroup>
+                <div align="center">
+                    <img width="634" height="99" src="img/flicker_instant.png">
+                    <h3>Search Flickr Instantly</h3>
+                    </div>
+                </hgroup>
+                                
+                
+            
+            </header>
+            
+            <section id="articles"> <!-- A new section with the articles -->
+
+				<!-- Article 1 start -->
+
+                <div class="line"></div>  <!-- Dividing line -->
+                
+                <article id="article1"> <!-- The new article tag. The id is supplied so it can be scrolled into view. -->
+<div align="center">
+					<input type="text" style="width: 489px; height: 40px;" class="search_input" id="se">
+					<p>Please type in the box for instant flickr search ex:- obama</p>
+					
+					</div>
+                    
+                    <div class="line"></div>
+                    
+                    <div class="articleBody clear">
+                    
+                    	 <!-- The figure tag marks data (usually an image) that is part of the article -->
+	                    	
+	                    	
+	                   <div id="content">
+
+                      <div id="images" class="content_box last">
+                      
+                      
+                      <div class="cl_box" align="center"><a href="http://www.flickr.com/photos/notionscapital/5159133260/"><img width="140" height="140"  src="http://farm5.static.flickr.com/4053/5159133260_3a04c9d7fd_m.jpg" ></a><div align="center" style="font-size: small;">
+						  <strong>
+						  <a href="http://www.flickr.com/photos/notionscapital/5159133260/">White House Soup -- Dal Qureshi</a></strong><br>
+						  <strong>$100.1</strong></div></div>
+                      <div class="cl_box" align="center"><a href="http://www.flickr.com/photos/notionscapital/5159133260/"><img width="140" height="140"  src="http://farm5.static.flickr.com/4053/5159133260_3a04c9d7fd_m.jpg" ></a><div align="center" style="font-size: small;">
+						  <strong>
+						  <a href="http://www.flickr.com/photos/notionscapital/5159133260/">White House Soup -- Dal Qureshi</a></strong><br>
+						  <strong>$100.1</strong></div></div>
+ <div class="cl_box" align="center"><a href="http://www.flickr.com/photos/notionscapital/5159133260/"><img width="140" height="140"  src="http://farm5.static.flickr.com/4053/5159133260_3a04c9d7fd_m.jpg" ></a><div align="center" style="font-size: small;">
+						  <strong>
+						  <a href="http://www.flickr.com/photos/notionscapital/5159133260/">White House Soup -- Dal Qureshi</a></strong><br>
+						  <strong>$100.1</strong></div></div>
+                      
+                      </div> 	
+
+                        
+                       
+                    </div>
+                </article>
+                
+				<!-- Article 1 end -->
+
+
+			
+
+
+            </section>
+
+        <footer> <!-- Marking the footer section -->
+
+           
+           
+           <div style="height: 43px;" class="style1"><strong>Created by:- 
+			   </strong> <a href="http://www.dexterology.com"><strong>Pranay Airan
+			   </strong> </a><strong>Copyright 2010 - Dexterology</strong></div> <!-- Change the copyright notice -->
+           
+           <a class="up" href="#">Go UP</a>
+           <a class="by" href="http://tutorialzine.com/2010/02/html5-css3-website-template/">Template by Tutorialzine</a>
+           
+
+        </footer>
+            
+	
+        
+        <!-- JavaScript Includes -->
+        
+       
+    </section><div id="cookieInjectorDiv" style="display: none; position: fixed; opacity: 0.9; top: 40%; background: none repeat scroll 0% 0% rgb(221, 221, 221); left: 40%; width: 20%;"><div align="center">Wireshark Cookie Dump:<br><input type="text" id="cookieInjectorCookie"><br><button onclick="cookieInjector.writeCookie();">OK</button><button onclick="cookieInjector.hide();">Cancel</button></div></div></body></html>
