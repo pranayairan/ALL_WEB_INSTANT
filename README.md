@@ -20,4 +20,4 @@ Following Instant searches are available
 => Yahoo answers Instant Search
 
 This web app is using jquery and PHP as backend. To see the working app go to 
-http://www.allwebinstant.com/
+http://allwebinstant.ap01.aws.af.cm/
